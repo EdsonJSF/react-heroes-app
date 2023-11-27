@@ -1,17 +1,21 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { DCPage } from "./heroes/pages/DCPage";
-import { LoginPage } from "./auth/pages/LoginPage";
-import { MarvelPage } from "./heroes/pages/MarvelPage";
+import { DCPage, MarvelPage } from "./heroes";
+import { LoginPage } from "./auth";
+import { Navbar } from "./shared";
 
 export const MainRouter = () => {
   return (
-    <Routes>
-      <Route path="/dc" element={<DCPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/marvel" element={<MarvelPage />} />
+    <>
+      <Navbar />
 
-      <Route path="/*" element={<Navigate to="/marvel" />} />
-    </Routes>
+      <Routes>
+        <Route path="/dc" element={<DCPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/marvel" element={<MarvelPage />} />
+
+        <Route path="/*" element={<Navigate to="/marvel" />} />
+      </Routes>
+    </>
   );
 };
