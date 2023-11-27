@@ -10,6 +10,14 @@ const HeroesRoutes = [
     path: "/dc",
     name: "DC",
   },
+  {
+    path: "/hero",
+    name: "Hero",
+  },
+  {
+    path: "/search",
+    name: "Search",
+  },
 ];
 
 export const Navbar = () => {
