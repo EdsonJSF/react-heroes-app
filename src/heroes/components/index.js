@@ -1,2 +1,2 @@
+export { HeroCard } from "./HeroCard";
 export { HeroesList } from "./HeroesList";
-export { HeroesListItem } from "./HeroesListItem";
