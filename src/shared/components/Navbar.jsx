@@ -11,10 +11,6 @@ const HeroesRoutes = [
     name: "DC",
   },
   {
-    path: "/hero",
-    name: "Hero",
-  },
-  {
     path: "/search",
     name: "Search",
   },
