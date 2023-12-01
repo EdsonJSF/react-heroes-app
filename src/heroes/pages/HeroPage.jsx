@@ -19,7 +19,7 @@ export const HeroPage = () => {
 
   return (
     <div className="row mt-5">
-      <div className="col-4">
+      <div className="col-4 animate__animated animate__slideInLeft">
         <img
           src={`/assets/heroes/${id}.jpg`}
           alt={hero.superhero}
@@ -27,7 +27,7 @@ export const HeroPage = () => {
         />
       </div>
 
-      <div className="col-8">
+      <div className="col-8 animate__animated">
         <h3>{hero.superhero}</h3>
 
         <ul className="list-group list-group-flush">
