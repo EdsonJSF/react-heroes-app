@@ -3,7 +3,7 @@ import { heroes } from "../data/heros";
 export const getHeroByName = (name = "") => {
   name = name.trim().toLowerCase();
 
-  if (!name.length) return heroes;
+  if (!name.length) return [];
 
   return heroes.filter((hero) => {
     if (

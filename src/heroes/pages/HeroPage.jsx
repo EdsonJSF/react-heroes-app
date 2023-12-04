@@ -10,9 +10,7 @@ export const HeroPage = () => {
   const hero = useMemo(() => getHeroById(id), [id]);
 
   const handleGoBack = () => {
-    const publisher = hero.publisher.split(" ")[0].toLowerCase();
-
-    navigate(`/${publisher}`);
+    navigate(-1);
   };
 
   if (!hero) return <Navigate to="/" />;

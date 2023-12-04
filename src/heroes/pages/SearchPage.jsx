@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 
-import { HeroCard } from "../components";
+import { HeroCard, SearchAlert } from "../components";
 import { useForm } from "../../shared";
 import { getHeroByName } from "../helpers";
 
@@ -11,6 +11,23 @@ export const SearchPage = () => {
 
   const { q = "" } = queryString.parse(location.search);
   const heroes = getHeroByName(q);
+
+  const showSearch = {
+    show: !q.length,
+    info: {
+      classStyle: "primary",
+      message: "Search a Hero",
+      boldMessage: "",
+    },
+  };
+  const showError = {
+    show: q.length > 0 && !heroes.length,
+    info: {
+      classStyle: "danger",
+      message: "No Results with",
+      boldMessage: q,
+    },
+  };
 
   const { search, onInputChange, onResetForm } = useForm({ search: "" });
 
@@ -56,14 +73,14 @@ export const SearchPage = () => {
           </h4>
           <hr />
 
-          <div className="alert alert-primary">Search a Hero</div>
-
-          <div className="alert alert-danger">
-            No Results with <span className="fw-bold">{q}</span>
-          </div>
+          {showSearch.show && <SearchAlert {...showSearch.info} />}
+          {showError.show && <SearchAlert {...showError.info} />}
 
           {heroes.map((hero) => (
-            <HeroCard key={hero.id} hero={hero} />
+            <>
+              <HeroCard key={hero.id} hero={hero} />
+              <hr />
+            </>
           ))}
         </div>
       </div>
