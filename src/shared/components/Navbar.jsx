@@ -1,5 +1,8 @@
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import { NavbarItem } from "./NavbarItem";
+import { AuthContext } from "../../auth";
 
 const HeroesRoutes = [
   {
@@ -17,6 +20,7 @@ const HeroesRoutes = [
 ];
 
 export const Navbar = () => {
+  const { authState } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -41,7 +45,9 @@ export const Navbar = () => {
 
       <div className="navbar-collapse w-100 order-3 dual-collapse2 d-flex justify-content-sm-end">
         <ul className="navbar-nav">
-          <span className="nav-item nav-link text-primary">Username</span>
+          <span className="nav-item nav-link text-primary">
+            {authState.user?.name}
+          </span>
 
           <button
             className="nav-item nav-link btn text-start"

@@ -6,14 +6,14 @@ export const AuthReducer = (state = {}, action) => {
       return {
         ...state,
         logged: true,
-        name: action.payload,
+        user: action.payload,
       };
 
     case TYPES.logout:
       return {
         ...state,
         logged: false,
-        name: "",
+        user: {},
       };
 
     default:
