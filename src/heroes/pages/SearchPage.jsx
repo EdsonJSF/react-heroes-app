@@ -47,7 +47,7 @@ export const SearchPage = () => {
       <hr />
 
       <div className="row">
-        <div className="col-5">
+        <div className="col-12 col-md-5">
           <h4>Searching</h4>
           <hr />
 
@@ -67,7 +67,7 @@ export const SearchPage = () => {
           </form>
         </div>
 
-        <div className="col-7">
+        <div className="col-12 col-md-7">
           <h4>
             Results: <span className="fw-bold">{heroes.length}</span>
           </h4>
