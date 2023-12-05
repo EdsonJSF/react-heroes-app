@@ -4,22 +4,29 @@ import PropTypes from "prop-types";
 import { AuthContext, AuthReducer } from ".";
 import { TYPES } from "../types/types";
 
-const initialState = {
-  logged: false,
-  user: {},
+const init = () => {
+  const user = JSON.parse(sessionStorage.getItem("user"));
+
+  return {
+    logged: !!user,
+    user,
+  };
 };
 
 export const AuthProvider = ({ children }) => {
-  const [authState, authDispatch] = useReducer(AuthReducer, initialState);
+  const [authState, authDispatch] = useReducer(AuthReducer, {}, init);
 
   const login = async (name = "") => {
+    const payload = {
+      id: "1",
+      name: name,
+    };
     const action = {
       type: TYPES.login,
-      payload: {
-        id: "1",
-        name: name,
-      },
+      payload,
     };
+
+    sessionStorage.setItem("user", JSON.stringify(payload));
 
     authDispatch(action);
   };
