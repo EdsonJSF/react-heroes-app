@@ -31,11 +31,18 @@ export const AuthProvider = ({ children }) => {
     authDispatch(action);
   };
 
+  const logout = () => {
+    sessionStorage.removeItem("user");
+    const action = { type: TYPES.logout };
+    authDispatch(action);
+  };
+
   return (
     <AuthContext.Provider
       value={{
         authState,
         login,
+        logout,
       }}
     >
       {children}

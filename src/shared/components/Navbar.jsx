@@ -20,10 +20,12 @@ const HeroesRoutes = [
 ];
 
 export const Navbar = () => {
-  const { authState } = useContext(AuthContext);
+  const { authState, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    logout();
+
     navigate("/login", {
       replace: true,
     });
