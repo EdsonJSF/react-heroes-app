@@ -9,10 +9,12 @@ export const MainRouter = () => {
   return (
     <Routes>
       <Route
-        path="/login"
+        path="login/*"
         element={
           <PublicRoute>
-            <LoginPage />
+            <Routes>
+              <Route path="/*" element={<LoginPage />} />
+            </Routes>
           </PublicRoute>
         }
       />
