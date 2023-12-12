@@ -8,9 +8,11 @@ export const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
+    const lastPath = sessionStorage.getItem("lastPath") || "/";
+
     login("Name");
 
-    navigate("/", {
+    navigate(lastPath, {
       replace: true,
     });
   };
