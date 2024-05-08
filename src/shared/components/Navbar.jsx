@@ -20,7 +20,7 @@ const HeroesRoutes = [
 ];
 
 export const Navbar = () => {
-  const { authState, logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -47,9 +47,7 @@ export const Navbar = () => {
 
       <div className="navbar-collapse w-100 order-3 dual-collapse2 d-flex justify-content-sm-end">
         <ul className="navbar-nav">
-          <span className="nav-item nav-link text-primary">
-            {authState.user?.name}
-          </span>
+          <span className="nav-item nav-link text-primary">{user.name}</span>
 
           <button
             className="nav-item nav-link btn text-start"
