@@ -29,16 +29,16 @@ export const SearchPage = () => {
     },
   };
 
-  const { search, onInputChange, onResetForm } = useForm({ search: "" });
+  const { search, onInputChange } = useForm({ search: q });
 
   const handleSearch = (event) => {
     event.preventDefault();
 
     const findSearch = search.trim().toLowerCase();
 
-    navigate(`?q=${findSearch}`);
+    onInputChange({target: {name: "search", value: findSearch}})
 
-    onResetForm();
+    navigate(`?q=${findSearch}`);
   };
 
   return (
